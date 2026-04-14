@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface selection:bg-primary/30 min-h-screen font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-headline tracking-tighter;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: linear-gradient(135deg, rgba(45, 52, 73, 0.4) 0%, rgba(23, 31, 51, 0.4) 100%);
+    backdrop-filter: blur(32px);
+    border: 1px solid rgba(134, 149, 133, 0.1);
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px) scale(1.005);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4), 0 0 20px -5px rgba(75, 226, 119, 0.15);
+    border-color: rgba(75, 226, 119, 0.25);
+  }
+
+  .ai-insight-glow {
+    position: relative;
+    background: linear-gradient(165deg, rgba(45, 52, 73, 0.6) 0%, rgba(11, 19, 38, 0.8) 100%);
+    border: 1px solid rgba(123, 208, 255, 0.2);
+    box-shadow: 0 0 30px -5px rgba(123, 208, 255, 0.1);
+  }
+
+  .ai-insight-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to right, rgba(123, 208, 255, 0.4), transparent, rgba(75, 226, 119, 0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .biometric-glow {
+    background: radial-gradient(circle, rgba(123, 208, 255, 0.08) 0%, rgba(11, 19, 38, 0) 70%);
+  }
+
+  .input-glow {
+    box-shadow: 0 0 40px -10px rgba(75, 226, 119, 0.2);
+    transition: box-shadow 0.4s ease;
+  }
+
+  .input-glow:focus-within {
+    box-shadow: 0 0 50px -5px rgba(75, 226, 119, 0.35);
+  }
+
+  .inner-glow-top {
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .btn-premium {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-premium:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px -4px rgba(75, 226, 119, 0.4);
+    filter: brightness(1.1);
+  }
+
+  .text-sharp {
+    letter-spacing: -0.011em;
+    line-height: 1.6;
+  }
+}
